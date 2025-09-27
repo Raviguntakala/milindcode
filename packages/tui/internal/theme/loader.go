@@ -65,8 +65,8 @@ func LoadThemesFromJSON() error {
 // The hierarchy is (from lowest to highest priority):
 // 1. Built-in themes (embedded)
 // 2. USER_CONFIG/opencode/themes/*.json
-// 3. PROJECT_ROOT/.opencode/themes/*.json
-// 4. CWD/.opencode/themes/*.json
+// 3. PROJECT_ROOT/.milindcode/themes/*.json
+// 4. CWD/.milindcode/themes/*.json
 func LoadThemesFromDirectories(userConfig, projectRoot, cwd string) error {
 	if err := LoadThemesFromJSON(); err != nil {
 		return fmt.Errorf("failed to load built-in themes: %w", err)
@@ -74,10 +74,10 @@ func LoadThemesFromDirectories(userConfig, projectRoot, cwd string) error {
 
 	dirs := []string{
 		filepath.Join(userConfig, "themes"),
-		filepath.Join(projectRoot, ".opencode", "themes"),
+		filepath.Join(projectRoot, ".milindcode", "themes"),
 	}
 	if cwd != projectRoot {
-		dirs = append(dirs, filepath.Join(cwd, ".opencode", "themes"))
+		dirs = append(dirs, filepath.Join(cwd, ".milindcode", "themes"))
 	}
 
 	for _, dir := range dirs {

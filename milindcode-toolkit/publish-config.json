@@ -1,0 +1,31 @@
+{
+  "packagePrefix": "@buildwise-ai",
+  "repositoryUrl": "https://github.com/buildwise-ai/milindcode",
+  "trackOriginalVersion": true,
+  "packages": [
+    {
+      "path": "packages/opencode",
+      "originalName": "opencode",
+      "newName": "@buildwise-ai/milindcode",
+      "description": "AI coding agent built for the terminal - BuildWise AI fork",
+      "publishBinary": true
+    },
+    {
+      "path": "packages/sdk/js",
+      "originalName": "@opencode-ai/sdk",
+      "newName": "@buildwise-ai/milindcode-sdk",
+      "description": "SDK for BuildWise AI Milindcode",
+      "publishBinary": false
+    },
+    {
+      "path": "packages/plugin",
+      "originalName": "@opencode-ai/plugin",
+      "newName": "@buildwise-ai/milindcode-plugin",
+      "description": "Plugin framework for BuildWise AI Milindcode",
+      "publishBinary": false
+    }
+  ],
+  "versionStrategy": "increment",
+  "buildBeforePublish": true,
+  "createBackup": true
+}

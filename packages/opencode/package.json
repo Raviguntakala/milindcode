@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
-  "version": "0.11.7",
-  "name": "opencode",
+  "version": "1.0.1",
+  "name": "@buildwise-ai/milindcode",
   "type": "module",
   "private": true,
   "scripts": {
@@ -10,7 +10,7 @@
     "dev": "bun run --conditions=development ./src/index.ts"
   },
   "bin": {
-    "opencode": "./bin/opencode"
+    "milindcode": "./bin/milindcode"
   },
   "exports": {
     "./*": "./src/*.ts"
@@ -33,8 +33,6 @@
     "@hono/zod-validator": "catalog:",
     "@modelcontextprotocol/sdk": "1.15.1",
     "@openauthjs/openauth": "0.4.3",
-    "@opencode-ai/plugin": "workspace:*",
-    "@opencode-ai/sdk": "workspace:*",
     "@standard-schema/spec": "1.0.0",
     "@zip.js/zip.js": "2.7.62",
     "ai": "catalog:",
@@ -57,6 +55,22 @@
     "web-tree-sitter": "0.22.6",
     "xdg-basedir": "5.1.0",
     "yargs": "18.0.0",
-    "zod": "catalog:"
+    "zod": "catalog:",
+    "@buildwise-ai/milindcode-sdk": "workspace:*",
+    "@buildwise-ai/milindcode-plugin": "workspace:*"
+  },
+  "description": "AI coding agent built for the terminal - BuildWise AI fork",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/buildwise-ai/milindcode"
+  },
+  "optionalDependencies": {
+    "@buildwise-ai/milindcode-windows-x64": "1.0.1",
+    "@buildwise-ai/milindcode-linux-arm64": "1.0.1",
+    "@buildwise-ai/milindcode-linux-x64": "1.0.1",
+    "@buildwise-ai/milindcode-linux-x64-baseline": "1.0.1",
+    "@buildwise-ai/milindcode-darwin-x64": "1.0.1",
+    "@buildwise-ai/milindcode-darwin-x64-baseline": "1.0.1",
+    "@buildwise-ai/milindcode-darwin-arm64": "1.0.1"
   }
 }

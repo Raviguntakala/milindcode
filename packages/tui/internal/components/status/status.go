@@ -67,7 +67,7 @@ func (m *statusComponent) logo() string {
 		Bold(true).
 		Render
 
-	open := base("open")
+	open := base("milind")
 	code := emphasis("code")
 	version := base(" " + m.app.Version)
 

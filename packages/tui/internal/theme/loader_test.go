@@ -78,8 +78,8 @@ func TestLoadThemesFromDirectories(t *testing.T) {
 
 	// Create theme directories
 	os.MkdirAll(filepath.Join(userConfig, "opencode", "themes"), 0755)
-	os.MkdirAll(filepath.Join(projectRoot, ".opencode", "themes"), 0755)
-	os.MkdirAll(filepath.Join(cwd, ".opencode", "themes"), 0755)
+	os.MkdirAll(filepath.Join(projectRoot, ".milindcode", "themes"), 0755)
+	os.MkdirAll(filepath.Join(cwd, ".milindcode", "themes"), 0755)
 
 	// Create test themes with same name to test override behavior
 	testTheme1 := `{
@@ -117,8 +117,8 @@ func TestLoadThemesFromDirectories(t *testing.T) {
 
 	// Write themes to different directories
 	os.WriteFile(filepath.Join(userConfig, "opencode", "themes", "override-test.json"), []byte(testTheme1), 0644)
-	os.WriteFile(filepath.Join(projectRoot, ".opencode", "themes", "override-test.json"), []byte(testTheme2), 0644)
-	os.WriteFile(filepath.Join(cwd, ".opencode", "themes", "override-test.json"), []byte(testTheme3), 0644)
+	os.WriteFile(filepath.Join(projectRoot, ".milindcode", "themes", "override-test.json"), []byte(testTheme2), 0644)
+	os.WriteFile(filepath.Join(cwd, ".milindcode", "themes", "override-test.json"), []byte(testTheme3), 0644)
 
 	// Load themes
 	err := LoadThemesFromDirectories(userConfig, projectRoot, cwd)

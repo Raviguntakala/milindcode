@@ -28,12 +28,12 @@ if (typeof OPENCODE_TUI_PATH !== "undefined") {
 
 export const TuiCommand = cmd({
   command: "$0 [project]",
-  describe: "start opencode tui",
+  describe: "start milindcode tui",
   builder: (yargs) =>
     yargs
       .positional("project", {
         type: "string",
-        describe: "path to start opencode in",
+        describe: "path to start milindcode in",
       })
       .option("model", {
         type: "string",
@@ -155,28 +155,28 @@ export const TuiCommand = cmd({
           },
         })
 
-        ;(async () => {
-          if (Installation.isDev()) return
-          if (Installation.isSnapshot()) return
-          const config = await Config.global()
-          if (config.autoupdate === false || Flag.OPENCODE_DISABLE_AUTOUPDATE) return
-          const latest = await Installation.latest().catch(() => {})
-          if (!latest) return
-          if (Installation.VERSION === latest) return
-          const method = await Installation.method()
-          if (method === "unknown") return
-          await Installation.upgrade(method, latest)
-            .then(() => Bus.publish(Installation.Event.Updated, { version: latest }))
-            .catch(() => {})
-        })()
-        ;(async () => {
-          if (Ide.alreadyInstalled()) return
-          const ide = Ide.ide()
-          if (ide === "unknown") return
-          await Ide.install(ide)
-            .then(() => Bus.publish(Ide.Event.Installed, { ide }))
-            .catch(() => {})
-        })()
+          ; (async () => {
+            if (Installation.isDev()) return
+            if (Installation.isSnapshot()) return
+            const config = await Config.global()
+            if (config.autoupdate === false || Flag.OPENCODE_DISABLE_AUTOUPDATE) return
+            const latest = await Installation.latest().catch(() => { })
+            if (!latest) return
+            if (Installation.VERSION === latest) return
+            const method = await Installation.method()
+            if (method === "unknown") return
+            await Installation.upgrade(method, latest)
+              .then(() => Bus.publish(Installation.Event.Updated, { version: latest }))
+              .catch(() => { })
+          })()
+          ; (async () => {
+            if (Ide.alreadyInstalled()) return
+            const ide = Ide.ide()
+            if (ide === "unknown") return
+            await Ide.install(ide)
+              .then(() => Bus.publish(Ide.Event.Installed, { ide }))
+              .catch(() => { })
+          })()
 
         await proc.exited
         server.stop()

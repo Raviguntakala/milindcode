@@ -22,7 +22,7 @@ export namespace Config {
   export const state = Instance.state(async () => {
     const auth = await Auth.all()
     let result = await global()
-    for (const file of ["opencode.jsonc", "opencode.json"]) {
+    for (const file of ["milindcode.jsonc", "milindcode.json"]) {
       const found = await Filesystem.findUp(file, Instance.directory, Instance.worktree)
       for (const resolved of found.toReversed()) {
         result = mergeDeep(result, await loadFile(resolved))
@@ -55,7 +55,7 @@ export namespace Config {
     const directories = [
       Global.Path.config,
       ...(await Array.fromAsync(
-        Filesystem.up({ targets: [".opencode"], start: Instance.directory, stop: Instance.worktree }),
+        Filesystem.up({ targets: [".milindcode"], start: Instance.directory, stop: Instance.worktree }),
       )),
     ]
 
@@ -140,7 +140,7 @@ export namespace Config {
       if (!md.data) continue
 
       const name = (() => {
-        const patterns = ["/.opencode/command/", "/command/"]
+        const patterns = ["/.milindcode/command/", "/command/"]
         const pattern = patterns.find((p) => item.includes(p))
 
         if (pattern) {
@@ -176,8 +176,8 @@ export namespace Config {
 
       // Extract relative path from agent folder for nested agents
       let agentName = path.basename(item, ".md")
-      const agentFolderPath = item.includes("/.opencode/agent/")
-        ? item.split("/.opencode/agent/")[1]
+      const agentFolderPath = item.includes("/.milindcode/agent/")
+        ? item.split("/.milindcode/agent/")[1]
         : item.includes("/agent/")
           ? item.split("/agent/")[1]
           : agentName + ".md"
@@ -569,8 +569,8 @@ export namespace Config {
     let result: Info = pipe(
       {},
       mergeDeep(await loadFile(path.join(Global.Path.config, "config.json"))),
-      mergeDeep(await loadFile(path.join(Global.Path.config, "opencode.json"))),
-      mergeDeep(await loadFile(path.join(Global.Path.config, "opencode.jsonc"))),
+      mergeDeep(await loadFile(path.join(Global.Path.config, "milindcode.json"))),
+      mergeDeep(await loadFile(path.join(Global.Path.config, "milindcode.jsonc"))),
     )
 
     await import(path.join(Global.Path.config, "config"), {

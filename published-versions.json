@@ -1,0 +1,22 @@
+{
+  "customVersion": "1.0.2",
+  "originalVersion": "1.0.1",
+  "publishedAt": "2025-09-27T09:36:03.110Z",
+  "packages": [
+    {
+      "name": "@buildwise-ai/milindcode",
+      "originalName": "opencode",
+      "path": "packages/opencode"
+    },
+    {
+      "name": "@buildwise-ai/milindcode-sdk",
+      "originalName": "@opencode-ai/sdk",
+      "path": "packages/sdk/js"
+    },
+    {
+      "name": "@buildwise-ai/milindcode-plugin",
+      "originalName": "@opencode-ai/plugin",
+      "path": "packages/plugin"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
-  "name": "@opencode-ai/sdk",
-  "version": "0.11.7",
+  "name": "@buildwise-ai/milindcode-sdk",
+  "version": "1.0.1",
   "type": "module",
   "scripts": {
     "typecheck": "tsc --noEmit",
@@ -34,5 +34,10 @@
   },
   "dependencies": {
     "@hey-api/openapi-ts": "0.81.0"
+  },
+  "description": "SDK for BuildWise AI Milindcode",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/buildwise-ai/milindcode"
   }
 }
