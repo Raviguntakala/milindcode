@@ -1,7 +1,7 @@
 {
-  "customVersion": "1.0.5",
+  "customVersion": "1.0.7",
   "originalVersion": "1.0.1",
-  "publishedAt": "2025-09-27T11:21:56.115Z",
+  "publishedAt": "2025-09-29T14:43:01.624Z",
   "packages": [
     {
       "name": "@buildwise-ai/milindcode",

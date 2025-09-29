@@ -305,6 +305,30 @@ const renameRules: RenameRule[] = [
         files: ["packages/opencode/bin/opencode"],
         search: 'name="@buildwise-ai/milindcode-${platform}-${arch}"',
         replace: 'pkg_platform="${platform}"\n    [ "$platform" = "win32" ] && pkg_platform="windows"\n    name="@buildwise-ai/milindcode-${pkg_platform}-${arch}"'
+    },
+
+    // 32. Fix preinstall script Windows bin configuration
+    {
+        description: "Fix preinstall script Windows bin configuration",
+        files: ["packages/opencode/script/preinstall.mjs"],
+        search: 'opencode: "./bin/opencode.cmd"',
+        replace: 'milindcode: "./bin/milindcode.cmd"'
+    },
+
+    // 33. Fix preinstall script console message
+    {
+        description: "Fix preinstall script console message",
+        files: ["packages/opencode/script/preinstall.mjs"],
+        search: 'console.log("Updated package.json bin to use opencode.cmd")',
+        replace: 'console.log("Updated package.json bin to use milindcode.cmd")'
+    },
+
+    // 34. Fix preinstall script Unix file removal
+    {
+        description: "Fix preinstall script Unix file removal",
+        files: ["packages/opencode/script/preinstall.mjs"],
+        search: 'const unixScript = path.join(__dirname, "bin", "opencode")',
+        replace: 'const unixScript = path.join(__dirname, "bin", "milindcode")'
     }
 ]
 
