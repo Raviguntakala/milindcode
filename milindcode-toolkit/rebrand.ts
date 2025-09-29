@@ -297,6 +297,14 @@ const renameRules: RenameRule[] = [
         files: ["packages/opencode/bin/opencode"],
         search: '[ "$platform" = "win32" ] && binary="opencode.exe"',
         replace: '[ "$platform" = "win32" ] && binary="milindcode.exe"'
+    },
+
+    // 31. Add Windows platform mapping (maps win32 to windows for package names)
+    {
+        description: "Add Windows platform mapping",
+        files: ["packages/opencode/bin/opencode"],
+        search: 'name="@buildwise-ai/milindcode-${platform}-${arch}"',
+        replace: 'pkg_platform="${platform}"\n    [ "$platform" = "win32" ] && pkg_platform="windows"\n    name="@buildwise-ai/milindcode-${pkg_platform}-${arch}"'
     }
 ]
 

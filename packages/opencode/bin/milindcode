@@ -32,7 +32,9 @@ else
         *) arch="$(uname -m)" ;;
     esac
     
-    name="@buildwise-ai/milindcode-${platform}-${arch}"
+    pkg_platform="${platform}"
+    [ "$platform" = "win32" ] && pkg_platform="windows"
+    name="@buildwise-ai/milindcode-${pkg_platform}-${arch}"
     binary="milindcode"
     [ "$platform" = "win32" ] && binary="milindcode.exe"
     
